@@ -20,4 +20,15 @@ $(document).ready(function () {
     // Update the h4 tag inside the div Amenities with the list of Amenities checked
     amenitiesHeading4.text(Object.values(amenitiesDict).join(", "));
   });
+
+  // Request API status
+  $.get("http://0.0.0.0:5001/api/v1/status/", function (data, status) {
+    if (status === "success" && data.status === "OK") {
+      // Add the class available to the div#api_status
+      $("#api_status").addClass("available");
+    } else {
+      // Remove the class available to the div#api_status
+      $("#api_status").removeClass("available");
+    }
+  });
 });
