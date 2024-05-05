@@ -11,7 +11,7 @@
   <title>HBnB</title>
   <!-- Import the JavaScript for API status -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="../static/scripts/4-hbnb.js"></script>
+  <script type="text/javascript" src="../static/scripts/101-hbnb.js"></script>
 </head>
 <body>
   <header>
@@ -28,10 +28,14 @@
           <ul>
             {% for state in states %}
             <li>
+              <input type="checkbox" data-id="{{ state[0].id }}" data-name="{{ state[0].name }}"> <!-- New checkbox for state -->
               <h2>{{ state[0].name }}:</h2>
               <ul>
                 {% for city in state[1] %}
-                <li>{{ city.name }}</li>
+                <li>
+                  <input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}"> <!-- New checkbox for city -->
+                  {{ city.name }}
+                </li>
                 {% endfor %}
               </ul>
             </li>
@@ -74,6 +78,8 @@
         <div class="description">
           {{ place.description | safe }}
         </div>
+        <h2>Reviews <span id="toggle_reviews">show</span></h2> <!-- New span for toggling reviews -->
+        <ul class="reviews"></ul> <!-- Container for reviews -->
       </article>
       {% endfor %}
     </section>
