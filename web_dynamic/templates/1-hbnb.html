@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <title>HBnB</title>
     <!-- Add cache_id as query string to each link tag URL -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../static/scripts/0-hbnb.js?cache_id={{ cache_id }}"></script>
+    <script src="../static/scripts/1-hbnb.js?cache_id={{ cache_id }}"></script>
   </head>
   <body>
     <header>
@@ -44,7 +44,9 @@
             <ul>
               {% for amenity in amenities %}
               <!-- Add input checkbox tag to each amenity li tag -->
-              <li><input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}"> {{ amenity.name }}</li>
+              <li>
+                <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}"> {{ amenity.name }}
+              </li>
               {% endfor %}
             </ul>
           </div>
